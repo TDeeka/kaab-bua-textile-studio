@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kaab Bua Fashion Textile Studio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <div class="brand-mark"><img src="assets/ubru-logo.png" alt="UBRU"></div>
+    <div class="brand-copy">
+      <strong>KAAB BUA</strong>
+      <span>TEXTILE STUDIO</span>
+    </div>
+  </div>
+
+  <nav class="nav">
+    <a href="#about">ABOUT</a>
+    <a href="#designer">DESIGNER</a>
+    <a href="#weaving-guide">WEAVING GUIDE</a>
+    <a href="#research">RESEARCH</a>
+    <a href="#gallery">GALLERY</a>
+    <a href="#team">TEAM</a>
+  </nav>
+
+  <div class="funding">
+    <span>Supported by</span>
+    <img src="assets/tsri-logo.png" alt="TSRI">
+  </div>
+</header>
+
+<section class="hero" id="about">
+  <div class="hero-visual">
+    <div class="display-screen">
+      <div class="screen-top">
+        <span>KAAB BUA GENERATIVE TEXTILE</span>
+        <span>01 / 03</span>
+      </div>
+
+      <div class="screen-body">
+        <div class="mini-tools"><span>◻</span><span>✦</span><span>◌</span><span>⌁</span></div>
+        <div class="mini-canvas"><div class="mini-fabric"></div></div>
+        <div class="mini-panel">
+          <div class="mini-tab active"></div><div class="mini-tab"></div><div class="mini-tab"></div><div class="mini-tab"></div>
+          <div class="mini-line w1"></div><div class="mini-line w2"></div><div class="mini-line w3"></div>
+          <div class="mini-swatches"><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fabric-card fabric-card-a"><div class="fabric-sample sample-a"></div></div>
+    <div class="fabric-card fabric-card-b"><div class="fabric-sample sample-b"></div></div>
+
+    <div class="floating-label">
+      <span>UBON RATCHATHANI</span>
+      <strong>Craft × Music × Technology</strong>
+    </div>
+  </div>
+
+  <div class="hero-copy">
+    <span class="hero-kicker">UBRU CULTURAL DESIGN RESEARCH</span>
+    <h1>MUSIC<br>TO TEXTILE</h1>
+    <div class="hero-wave">〰〰〰</div>
+    <p class="hero-lead">CREATE CONTEMPORARY KAAB BUA TEXTILE PATTERNS FROM NOTE, BEAT AND MUSICAL ENERGY.</p>
+
+    <a class="hero-cta" href="#designer">START DESIGNING <span>→</span></a>
+
+    <div class="hero-meta">
+      <div>
+        <span>Researcher</span>
+        <strong>ผู้ช่วยศาสตราจารย์ธัญลักษม์ ดีกา</strong>
+      </div>
+      <div>
+        <span>Researcher</span>
+        <strong>ผู้ช่วยศาสตราจารย์บริบูรณ์ ดีกา</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="intro-strip" id="research">
+  <div><span>01</span><strong>LISTEN</strong><p>อัปโหลดและฟังเพลงจนจบ</p></div>
+  <div><span>02</span><strong>ANALYZE</strong><p>ระบบเลือกช่วงเพลงที่เหมาะกับการออกแบบ</p></div>
+  <div><span>03</span><strong>WEAVE</strong><p>เปลี่ยน Note + Beat เป็นสีและลวดลาย</p></div>
+</section>
+
+<section class="designer-section" id="designer">
+  <div class="designer-heading">
+    <div>
+      <span class="section-kicker">INTERACTIVE DESIGNER</span>
+      <h2>Design your Kaab Bua textile</h2>
+    </div>
+    <p>เครื่องมือทดลองออกแบบลายผ้ากาบบัวจากเสียงเพลง สำหรับงานวิจัยและการสร้างสรรค์ร่วมสมัย</p>
+  </div>
+
+  <div class="designer-grid">
+    <aside class="control-panel">
+      <div class="panel-section">
+        <div class="panel-title"><span>01</span><h3>MUSIC INPUT</h3></div>
+
+        <label class="upload-box" for="audioFile">
+          <div class="upload-icon">♪</div>
+          <div><strong>Upload your music</strong><small>MP3 / WAV / M4A</small></div>
+          <b>＋</b>
+        </label>
+
+        <input id="audioFile" type="file" accept="audio/*">
+        <div id="songName" class="song-name">ยังไม่ได้เลือกเพลง</div>
+        <audio id="audioPlayer" controls></audio>
+
+        <div class="wave-box">
+          <canvas id="waveCanvas" width="800" height="200"></canvas>
+          <div class="wave-time">
+            <span id="currentTime">00:00</span>
+            <span>PLAYHEAD</span>
+            <span id="durationTime">00:00</span>
+          </div>
+
+          <div class="wave-selection-info">
+            <div class="wave-legend">
+              <span class="legend-highlight"></span>
+              <span>ช่วงเพลงที่ระบบเลือกสำหรับสร้างลาย</span>
+            </div>
+            <strong id="waveSelectedRange">รอการวิเคราะห์</strong>
+          </div>
+        </div>
+
+        <div class="status-box">
+          <strong id="statusTitle">รอเลือกเพลง</strong>
+          <p id="statusText">กรุณาฟังเพลงจนจบก่อน ระบบจึงจะเลือกช่วงเพลงที่เหมาะสมสำหรับออกแบบลายผ้า</p>
+        </div>
+
+        <div id="analysisCard" class="analysis-card hidden">
+          <div class="analysis-head"><span>SELECTED PHRASE</span><strong id="selectedTime">-</strong></div>
+          <div class="metric-grid">
+            <div><span>Beat</span><strong id="beatMetric">-</strong></div>
+            <div><span>Note</span><strong id="noteMetric">-</strong></div>
+            <div><span>Energy</span><strong id="energyMetric">-</strong></div>
+            <div><span>Score</span><strong id="scoreMetric">-</strong></div>
+          </div>
+          <div id="reasonBox" class="reason-box"></div>
+        </div>
+      </div>
+
+      <div class="panel-section">
+        <div class="panel-title"><span>02</span><h3>PATTERN</h3></div>
+
+        <label class="field">
+          <span>Motif structure</span>
+          <select id="patternStyle">
+            <option value="compact">ลายกาบกระชับ</option>
+            <option value="traditional" selected>ลายกาบสมมาตร</option>
+            <option value="wide">ลายกาบกว้าง</option>
+            <option value="slender">ลายกาบเพรียวสูง</option>
+            <option value="layered">ลายกาบซ้อนชั้น</option>
+            <option value="royal">ลายกาบประดับกลาง</option>
+          </select>
+        </label>
+
+        <div class="motif-preview-title">
+          <span>PREVIEW MOTIF</span>
+          <small>คลิกภาพเพื่อเลือกรูปแบบ</small>
+        </div>
+
+        <div class="motif-preview-grid" id="motifPreviewGrid">
+          <button class="motif-card" type="button" data-style="compact">
+            <canvas width="170" height="126"></canvas>
+            <span>กาบกระชับ</span>
+          </button>
+
+          <button class="motif-card selected" type="button" data-style="traditional">
+            <canvas width="170" height="126"></canvas>
+            <span>กาบสมมาตร</span>
+          </button>
+
+          <button class="motif-card" type="button" data-style="wide">
+            <canvas width="170" height="126"></canvas>
+            <span>กาบกว้าง</span>
+          </button>
+
+          <button class="motif-card" type="button" data-style="slender">
+            <canvas width="170" height="126"></canvas>
+            <span>กาบเพรียวสูง</span>
+          </button>
+
+          <button class="motif-card" type="button" data-style="layered">
+            <canvas width="170" height="126"></canvas>
+            <span>กาบซ้อนชั้น</span>
+          </button>
+
+          <button class="motif-card" type="button" data-style="royal">
+            <canvas width="170" height="126"></canvas>
+            <span>กาบประดับกลาง</span>
+          </button>
+        </div>
+
+        <label class="switch-row"><input id="innerPattern" type="checkbox" checked><i></i><span>รายละเอียดเส้นทอด้านใน</span></label>
+        <label class="switch-row"><input id="lotusToggle" type="checkbox"><i></i><span>แทรกดอกบัวเล็กบางจุด</span></label>
+
+        <label class="range-field"><span>จำนวนแนวลาย <b id="columnText">6</b></span><input id="patternColumns" type="range" min="4" max="9" value="6"></label>
+        <label class="range-field"><span>ความกว้าง Motif <b id="widthText">58%</b></span><input id="motifWidth" type="range" min="40" max="80" value="58"></label>
+      </div>
+
+      <div class="panel-section">
+        <div class="panel-title"><span>03</span><h3>COLOR PALETTE</h3></div>
+        <div class="palette-grid">
+          <label><span>Base</span><input id="baseColor" type="color" value="#d39bc3"></label>
+          <label><span>Motif</span><input id="motifColor" type="color" value="#efd6e8"></label>
+          <label><span>Detail</span><input id="lightColor" type="color" value="#fff3fb"></label>
+          <label><span>Accent</span><input id="accentColor" type="color" value="#ebd496"></label>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="previewBtn" class="btn outline" disabled>▶ PREVIEW SELECTED PHRASE</button>
+        <button id="weaveBtn" class="btn solid" disabled>START WEAVING →</button>
+        <button id="downloadBtn" class="btn text" disabled>DOWNLOAD PNG ↓</button>
+        <button id="saveGalleryBtn" class="btn gallery-btn" disabled>SAVE TO GALLERY ♡</button>
+      </div>
+    </aside>
+
+    <section class="textile-panel">
+      <div class="textile-top">
+        <div><span class="section-kicker">GENERATIVE OUTPUT</span><h3>Textile Preview</h3></div>
+        <span id="weavingStatus" class="status-pill">WAITING</span>
+      </div>
+
+      <div class="textile-stage">
+        <div class="side-caption left">KAAB BUA / UBRU</div>
+        <div class="side-caption right">MUSIC-DRIVEN DESIGN</div>
+        <div class="canvas-frame"><canvas id="patternCanvas" width="1200" height="1500"></canvas></div>
+      </div>
+
+      <div class="progress-area">
+        <div><span>WEAVING PROGRESS</span><strong id="progressText">0%</strong></div>
+        <div class="progress-track"><div id="progressBar"></div></div>
+      </div>
+
+      <div class="mapping-row">
+        <div><span>NOTE</span><strong>Color Tone</strong></div>
+        <div><span>BEAT</span><strong>Pattern Rhythm</strong></div>
+        <div><span>ENERGY</span><strong>Motif Intensity</strong></div>
+      </div>
+    </section>
+  </div>
+</section>
+
+
+
+<section class="weaving-guide-section" id="weaving-guide">
+  <div class="weaving-guide-heading">
+    <div>
+      <span class="section-kicker">WEFT IKAT PROTOTYPE</span>
+      <h2>Weaving Guide</h2>
+    </div>
+
+    <div class="guide-intro">
+      <p>
+        แปลง Motif ที่เลือกเป็นแผนผังมัดหมี่เส้นพุ่งแบบ Prototype
+        ขนาด 24 ตำแหน่ง × 24 แถว เพื่อใช้เป็นแนวทางทดลองมัดและทอ
+      </p>
+      <span class="prototype-badge">24 × 24 PROTOTYPE</span>
+    </div>
+  </div>
+
+  <div class="guide-layout">
+
+    <aside class="guide-sidebar">
+      <div class="guide-card">
+        <span class="guide-label">SELECTED MOTIF</span>
+        <strong id="guideMotifName">ลายกาบสมมาตร</strong>
+      </div>
+
+      <div class="guide-card">
+        <span class="guide-label">TECHNIQUE</span>
+        <strong>มัดหมี่เส้นพุ่ง</strong>
+        <small>Weft Ikat Prototype</small>
+      </div>
+
+      <div class="guide-card">
+        <span class="guide-label">GRID STANDARD</span>
+        <strong>24 × 24</strong>
+        <small>24 จุดมัด × 24 ลำดับเส้นพุ่ง</small>
+      </div>
+
+      <div class="tie-legend">
+        <div>
+          <span class="tie-cell tied"></span>
+          <strong>มัด / RESIST</strong>
+        </div>
+        <div>
+          <span class="tie-cell untied"></span>
+          <strong>ไม่มัด / OPEN</strong>
+        </div>
+      </div>
+
+      <div class="guide-note">
+        <strong>Prototype Research Guide</strong>
+        <p>
+          แผนผังนี้ใช้เป็นแนวทางทดลองสำหรับงานวิจัย
+          ก่อนนำไปผลิตจริงควรตรวจสอบจำนวนเส้น การจัดหมี่
+          ระยะมัด และการย้อมร่วมกับช่างทอ
+        </p>
+      </div>
+
+      <div class="guide-buttons">
+        <button id="downloadGuideBtn" class="guide-btn primary-guide" type="button">
+          DOWNLOAD GUIDE PNG ↓
+        </button>
+
+        <button id="downloadGuideCsvBtn" class="guide-btn" type="button">
+          DOWNLOAD ROW DATA CSV
+        </button>
+
+        <button id="printGuideBtn" class="guide-btn" type="button">
+          PRINT GUIDE
+        </button>
+      </div>
+    </aside>
+
+    <div class="guide-main">
+      <div class="tie-map-card">
+        <div class="tie-map-header">
+          <div>
+            <span>TIE MAP</span>
+            <strong id="guideMapTitle">ลายกาบสมมาตร · 24 × 24</strong>
+          </div>
+
+          <div class="axis-hint">
+            <span>← ตำแหน่งมัดตามหน้าหมี่ →</span>
+          </div>
+        </div>
+
+        <div class="tie-map-canvas-wrap">
+          <canvas id="tieMapCanvas" width="960" height="960"></canvas>
+        </div>
+
+        <div class="row-axis-label">
+          <span>ลำดับเส้นพุ่ง / ROW SEQUENCE ↓</span>
+        </div>
+      </div>
+
+      <div class="row-guide-card">
+        <div class="row-guide-title">
+          <div>
+            <span>ROW-BY-ROW GUIDE</span>
+            <strong>คำแนะนำตำแหน่งมัดรายแถว</strong>
+          </div>
+          <span id="guideTieCount">0 tie points</span>
+        </div>
+
+        <div id="rowGuideList" class="row-guide-list"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery-section" id="gallery">
+  <div class="gallery-heading">
+    <div>
+      <span class="section-kicker">DESIGN ARCHIVE</span>
+      <h2>My Textile Gallery</h2>
+    </div>
+    <div class="gallery-heading-copy">
+      <p>บันทึกผลงานลายผ้าที่สร้างจากบทเพลงไว้ในเบราว์เซอร์เครื่องนี้</p>
+      <button id="clearGalleryBtn" class="clear-gallery-btn" type="button">CLEAR GALLERY</button>
+    </div>
+  </div>
+
+  <div id="galleryEmpty" class="gallery-empty">
+    <span>♡</span>
+    <strong>ยังไม่มีผลงานใน Gallery</strong>
+    <p>เมื่อทอผ้าเสร็จ กด “SAVE TO GALLERY” เพื่อเก็บผลงานไว้ที่นี่</p>
+  </div>
+
+  <div id="galleryGrid" class="gallery-grid"></div>
+</section>
+
+<section class="team-section" id="team">
+  <div class="team-inner">
+    <span class="section-kicker">RESEARCH TEAM</span>
+    <h2>Culture, craft and computational design</h2>
+    <p>งานวิจัยมุ่งเชื่อมโยงอัตลักษณ์ผ้ากาบบัวอุบลราชธานี กับเทคโนโลยีการวิเคราะห์เสียงและการออกแบบเชิงกำเนิด</p>
+
+    <div class="team-grid">
+      <div><span>01</span><strong>ผู้ช่วยศาสตราจารย์ธัญลักษม์ ดีกา</strong></div>
+      <div><span>02</span><strong>ผู้ช่วยศาสตราจารย์บริบูรณ์ ดีกา</strong></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div><strong>KAAB BUA TEXTILE STUDIO</strong><span>Ubon Ratchathani Rajabhat University</span></div>
+  <span>Research Prototype · 2020</span>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
